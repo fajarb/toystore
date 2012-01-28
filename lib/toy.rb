@@ -11,9 +11,21 @@ require 'active_model'
 require 'active_support/json'
 require 'active_support/core_ext/object'
 require 'active_support/core_ext/hash/keys'
-require 'active_support/core_ext/class/inheritable_attributes'
+# require 'active_support/core_ext/class/inheritable_attributes'
+# require 'active_support/core_ext/class/attribute'
 require 'active_support/core_ext/string/conversions'
 require 'active_support/core_ext/string/inflections'
+
+
+
+
+
+# if Gem.loaded_specs['activesupport'].version > Gem::Version.create('3.2.0.pre') # ActiveSupport 3.2
+#   require 'active_support/core_ext/class/attribute'
+# else # ActiveSupport 3.0, 3.1
+#   require 'active_support/core_ext/class/inheritable_attributes'
+# end
+
 
 extensions_path = root_path.join('lib', 'toy', 'extensions')
 Dir[extensions_path + '**/*.rb'].each { |file| require(file) }

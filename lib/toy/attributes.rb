@@ -17,16 +17,22 @@ module Toy
       end
 
       def attribute(key, type, options = {})
-        Attribute.new(self, key, type, options)
+        define_attribute_methods([key]) unless (key == :id) 
+        Attribute.new(self, key, type, options)        
       end
 
       def attribute?(key)
         attributes.has_key?(key.to_s)
       end
+      
+      def define_attribute_methods(name)
+        super(name)
+      end
     end
 
     module InstanceMethods
       def initialize(attrs={})
+        # debugger
         @_new_record = true unless defined?(@_new_record)
         initialize_attributes_with_defaults
         send(:attributes=, attrs, @_new_record)
@@ -133,6 +139,11 @@ module Toy
             @attributes[attribute.name.to_s] = attribute.default
           end
         end
+        
+        # def method_missing(method, *args, &block)
+        #   self.class.define_attribute_methods
+        #   super
+        # end
     end
   end
 end

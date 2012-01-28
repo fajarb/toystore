@@ -6,7 +6,7 @@ group(:development) do
   gem 'rspec',      '~> 2.3'
   gem 'timecop',    '~> 0.3.5'
   gem 'tzinfo',     '~> 0.3.23'
-  gem 'log_buddy',  '~> 0.5.0'
+  gem 'log_buddy',  '~> 0.6.0'
   gem 'rack-test'
 
   gem 'bson'
