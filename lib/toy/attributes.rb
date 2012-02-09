@@ -4,7 +4,7 @@ module Toy
     include ActiveModel::AttributeMethods
 
     included do
-      attribute_method_suffix('', '=', '?')
+      attribute_method_suffix('=', '?')
     end
 
     module ClassMethods
