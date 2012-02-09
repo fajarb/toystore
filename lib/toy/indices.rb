@@ -39,18 +39,16 @@ module Toy
       end
     end
 
-    module InstanceMethods
-      def indices
-        self.class.indices
-      end
-
-      def create_index(*args)
-        self.class.create_index(*args)
-      end
-
-      def destroy_index(*args)
-        self.class.destroy_index(*args)
-      end
+    def indices
+      self.class.indices
+    end
+    
+    def create_index(*args)
+      self.class.create_index(*args)
+    end
+    
+    def destroy_index(*args)
+      self.class.destroy_index(*args)
     end
   end
 end

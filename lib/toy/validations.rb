@@ -31,19 +31,17 @@ module Toy
       end
     end
 
-    module InstanceMethods
-      def valid?
-        run_callbacks(:validation) { super }
-      end
-
-      def save(options={})
-        options.assert_valid_keys(:validate)
-        !options.fetch(:validate, true) || valid? ? super : false
-      end
-
-      def save!
-        save || raise(RecordInvalid.new(self))
-      end
+    def valid?
+      run_callbacks(:validation) { super }
+    end
+    
+    def save(options={})
+      options.assert_valid_keys(:validate)
+      !options.fetch(:validate, true) || valid? ? super : false
+    end
+    
+    def save!
+      save || raise(RecordInvalid.new(self))
     end
   end
 end

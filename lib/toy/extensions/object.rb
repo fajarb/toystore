@@ -11,10 +11,8 @@ module Toy
         end
       end
 
-      module InstanceMethods
-        def to_store
-          self.class.to_store(self)
-        end
+      def to_store
+        self.class.to_store(self)
       end
     end
   end
@@ -22,5 +20,5 @@ end
 
 class Object
   extend Toy::Extensions::Object::ClassMethods
-  include Toy::Extensions::Object::InstanceMethods
+  # include Toy::Extensions::Object::InstanceMethods
 end

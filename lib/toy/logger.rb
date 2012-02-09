@@ -17,14 +17,12 @@ module Toy
       end
     end
 
-    module InstanceMethods
-      def logger
-        Toy.logger
-      end
-
-      def log_operation(*args)
-        self.class.log_operation(*args)
-      end
+    def logger
+      Toy.logger
+    end
+    
+    def log_operation(*args)
+      self.class.log_operation(*args)
     end
   end
 end
